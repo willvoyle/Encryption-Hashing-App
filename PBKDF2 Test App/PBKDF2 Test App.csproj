@@ -51,10 +51,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL.Security\DAL.Security.csproj">
-      <Project>{cf264f38-2ebd-44fa-b538-edd5121fa48e}</Project>
-      <Name>DAL.Security</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Security\Security.csproj">
       <Project>{809b6171-00a0-4786-ba09-70c83dddd766}</Project>
       <Name>Security</Name>

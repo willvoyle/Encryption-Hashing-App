@@ -6,7 +6,6 @@ using Security.Encryptors;
 
 namespace PBKDF2_Test_App
 {
-    using DAL.Security;
     using Enum;
     using Security.Hashing;
     public class Program
@@ -77,10 +76,10 @@ namespace PBKDF2_Test_App
             ValidateData(data);
 
             PBKDF2ManagedEncryption _PBKDF2Encryption = new PBKDF2ManagedEncryption();
-            Queries db = new Queries();
+            //Queries db = new Queries();
 
             var encryptedData = _PBKDF2Encryption.Encrypt(data);
-            db.InsertCipherIntoDb(encryptedData.Cipher, encryptedData.IV, encryptedData.Salt);
+            //db.InsertCipherIntoDb(encryptedData.Cipher, encryptedData.IV, encryptedData.Salt);
 
             File.WriteAllBytes(Path.Replace("{0}", DataType.Data.ToString()), encryptedData.Cipher);
             File.WriteAllBytes(Path.Replace("{0}", DataType.IV.ToString()), encryptedData.IV);
@@ -101,15 +100,15 @@ namespace PBKDF2_Test_App
             int cipherId = TryParseInt(Console.ReadLine());
 
 
-            Queries db = new Queries();
-            var encryptedDataDto = db.SelectCipherDataFromDb(cipherId);
+            //Queries db = new Queries();
+            //var encryptedDataDto = db.SelectCipherDataFromDb(cipherId);
 
-            PBKDF2DEncryptedData encryptedData = new PBKDF2DEncryptedData
-            {
-                Cipher = encryptedDataDto.Cipher,
-                IV = encryptedDataDto.IV,
-                Salt = encryptedDataDto.Salt
-            };
+            //PBKDF2DEncryptedData encryptedData = new PBKDF2DEncryptedData
+            //{
+            //    Cipher = encryptedDataDto.Cipher,
+            //    IV = encryptedDataDto.IV,
+            //    Salt = encryptedDataDto.Salt
+            //};
 
             //encryptedData.Cipher = File.ReadAllBytes(Path.Replace("{0}", DataType.Data.ToString()));
             //encryptedData.IV = File.ReadAllBytes(Path.Replace("{0}", DataType.IV.ToString()));
